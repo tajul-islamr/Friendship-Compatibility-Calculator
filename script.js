@@ -6,15 +6,12 @@ function calculateFriendship() {
     const time = parseInt(document.getElementById("time").value);
     
     if (name1 === "" || name2 === "" || isNaN(interests) || isNaN(trust) || isNaN(time)) {
-        animateText("friendshipScore", "❌ Please fill out all fields!");
-        animateText("friendshipMessage", "");
+        alert("Please fill out all fields.");
         return;
     }
 
-    // Calculate friendship score based on weighted factors
     const compatibilityScore = Math.min(100, (interests * 4) + (trust * 5) + (time / 2));
     
-    // Fun messages based on the score
     let message = "";
     if (compatibilityScore > 80) {
         message = "🌟 Best Friends Forever! 🎉";
@@ -25,31 +22,17 @@ function calculateFriendship() {
     } else {
         message = "😢 Friendship needs a bit more nurturing. 💧";
     }
-    
-    animateText("friendshipScore", `👫 ${Math.floor(compatibilityScore)}% 👫`);
-    animateText("friendshipMessage", message);
+
+    document.getElementById("friendshipScore").textContent = `${Math.floor(compatibilityScore)}%`;
+    document.getElementById("friendshipMessage").textContent = message;
     updateMeter(compatibilityScore);
 }
 
-// Function to dynamically update the trust slider value
-function updateTrustValue(value) {
-    document.getElementById("trustValue").textContent = value;
-}
-
-// Function to animate the result text
-function animateText(id, text) {
-    const element = document.getElementById(id);
-    element.style.opacity = "0";
-    setTimeout(() => {
-        element.innerHTML = text;
-        element.style.opacity = "1";
-        element.style.transition = "opacity 0.8s ease, transform 0.5s ease";
-        element.style.transform = "translateY(0)";
-    }, 200);
-}
-
-// Function to update the visual meter based on the score
 function updateMeter(score) {
     const meterFill = document.getElementById("meter-fill");
     meterFill.style.width = `${score}%`;
+}
+
+function updateTrustValue(value) {
+    document.getElementById("trustValue").textContent = value;
 }
