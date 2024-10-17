@@ -7,116 +7,65 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 650px;
-    padding: 40px;
+    max-width: 600px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.95);
-    border-radius: 25px;
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    animation: zoomIn 0.8s ease;
-    overflow: hidden;
+    margin: 20px auto;
 }
 
 h1 {
-    font-family: 'Pacifico', cursive;
+    font-size: 2.4rem;
     color: #ff6f61;
-    font-size: 2.8rem;
-    animation: fadeIn 1s ease;
+    animation: fadeIn 1.2s ease;
 }
 
 p {
     font-size: 1.2rem;
-    color: #444;
-    font-family: 'Raleway', sans-serif;
-    animation: fadeIn 1.2s ease;
+    color: #555;
 }
 
 label {
     display: block;
-    margin-top: 15px;
-    font-weight: 600;
-    color: #007bff;
     font-size: 1.1rem;
+    color: #333;
+    margin-top: 15px;
 }
 
-input, .range-input {
-    width: 85%;
-    padding: 14px;
-    margin-top: 8px;
+.range-input, .input-field {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
     border: 2px solid #ff6f61;
-    border-radius: 12px;
+    border-radius: 10px;
     font-size: 1rem;
-    text-align: center;
-    font-family: 'Raleway', sans-serif;
-    transition: all 0.3s ease;
-}
-
-input:focus, .range-input:focus {
-    border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
-}
-
-.slider-container {
-    position: relative;
-    width: 85%;
-    margin: 20px auto;
-}
-
-.slider-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-    font-size: 0.9rem;
-    color: #007bff;
-    padding: 0 5px;
 }
 
 button {
     background-color: #007bff;
-    color: #fff;
-    font-size: 1.3rem;
+    color: white;
+    font-size: 1.2rem;
     padding: 12px 30px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    margin-top: 25px;
-    transition: all 0.4s ease;
-    box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.4);
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
 }
 
 button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 123, 255, 0.6);
-}
-
-.result {
-    margin-top: 30px;
-    animation: fadeIn 1.2s ease;
-}
-
-#friendshipScore {
-    font-size: 2.5rem;
-    color: #007bff;
-    margin: 15px 0;
-    opacity: 0;
-    transform: translateY(20px);
-    font-family: 'Pacifico', cursive;
-}
-
-#friendshipMessage {
-    font-size: 1.5rem;
-    color: #333;
-    opacity: 0;
-    transform: translateY(20px);
-    font-family: 'Raleway', sans-serif;
 }
 
 .meter {
@@ -136,50 +85,16 @@ button:hover {
     transition: width 1.5s ease-in-out;
 }
 
-.bounce {
-    animation: bounce 1.2s infinite;
-}
-
-.floating-heart, .floating-star {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: url('heart.png') no-repeat center;
-    animation: floatUp 8s infinite;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0.5;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(0); opacity: 0.8; }
-    100% { transform: translateY(-300px); opacity: 0; }
-}
-
 @media (max-width: 600px) {
     .container {
-        width: 95%;
-        padding: 20px;
+        width: 90%;
+        padding: 15px;
     }
-    
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    button {
+        font-size: 1rem;
     }
 }
+
